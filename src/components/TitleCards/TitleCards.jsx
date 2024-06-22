@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./TitleCards.css";
 import cards_data from "../../assets/cards/Cards_data";
 import { Link } from "react-router-dom";
+import { TMDB_Access_Key } from "../../config";
 
 const TitleCards = ({ title, category }) => {
   const [apiData, setApiData] = useState([]);
@@ -11,8 +12,7 @@ const TitleCards = ({ title, category }) => {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDBkNjI5NWRmYTY1YTZjM2EzM2M3ZWNmMmU5MzQ5OCIsIm5iZiI6MTcxOTA3Nzg0OS4wMTcyNTYsInN1YiI6IjY2NzcwYWRhNTRkMGQwNzhmMWVkMmMzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zEiEZouVafet-ztoxk6xtZ_Ffgsi88DSs9B604Qi5KM",
+      Authorization: `Bearer ${TMDB_Access_Key}`,
     },
   };
 
