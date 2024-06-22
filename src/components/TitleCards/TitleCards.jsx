@@ -34,14 +34,18 @@ const TitleCards = ({ title, category }) => {
 
     cardsRef.current.addEventListener("wheel", handleWheel);
   }, []);
-
+  const dataToPass = { name: "John Doe", age: 25 };
   return (
-    <div className="titlecards">
+    <div className="title-cards">
       <h2>{title ? title : "Popular on Netflix"}</h2>
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index) => {
           return (
-            <Link to={`/player/${card.id}`} className="card" key={index}>
+            <Link
+              to={{ pathname: `/player/${card.id}`, state: dataToPass }}
+              className="card"
+              key={index}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path}
                 alt=""
